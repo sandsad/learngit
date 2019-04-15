@@ -16,3 +16,6 @@
 版本库：工作区中隐藏目录.git；
 暂存区：版本库中名为stage（或index）的暂存区
 git add命令就是把文件修改添加到暂存区;git commit就是往master分支提交更改。
+
+10、丢弃工作区的更改：git checkout -- file
+11、丢弃暂存区的更改：git reset HEAD <file>
