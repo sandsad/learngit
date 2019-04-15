@@ -3,4 +3,10 @@
 	第一步、git add readme.txt：告诉Git，把文件添加到仓库；
 	第二步、git commit -m "illstration"：-m后面输入本次提交的说明
 3、查看仓库当前状态：git status
-4、查看difference：git diff
+4、查看difference：git diff readme.txt
+5、提交修改和添加新文件命令相同
+6、查看历史记录：git log [--pretty=oneline]
+7、回退版本：git reset --hard HEAD^
+	HEAD表示当前版本，HEAD^表示上个版本，HEAD^^表示上上个版本，HEAD~100表示往上100个版本
+8、使用git reset --hard 版本id 可以回退到任意一个版本（包括回退后）
+9、查看命令历史：git reflog
