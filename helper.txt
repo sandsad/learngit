@@ -28,3 +28,16 @@ git add命令就是把文件修改添加到暂存区;git commit就是往master�
 第一步：创建SSH key.用户主目录下是否有.ssh目录，这个目录下是否有id_rsa和id_rsa.pub，如果有则跳过，没有则打开shell（Windows下打开Git Bash），创建SSH Key:
 	$ssh-keygen -t rsa -C "youremail@example.com"
 第二步：登录GitHub，打开"Account settings" > "SSH Key"页面：点击"Add SSH Key",填任意Title，在Key文本框里粘贴id_rsa.pub文件的内容，点击"Add Key",就可以看到已添加的Key。
+
+
+本地Git仓库与GitHub仓库
+(1)新建仓库："Create a new repository",Repository name填入learngit,其他保持默认,点击"Create repository",成功创建一个新的Git仓库；
+(2)把本地仓库内容推送到GitHub仓库中：本地仓库下运行命令
+	$git remote add origin git@github.com:sandsad/learngit.git
+	ps:sandsad为GitHub用户名,learngit为仓库名
+(3)把本地仓库推送到远程库上：
+	$git push -u origin master (git push命令实际上是把当前分支master推送到远程，由于远程库是空的，第一次push时加上-u参数,Git不但会把本地的master分支推送，还会与远程的master分支关联起来)
+	(第一次使用Git的clone或push命令连接GitHub时会遇到一个警告,SSH连接在第一次验证GitHub服务器key时需要确认，输入yes回车即可)
+(4)本地作了提交之后就可以通过命令推送到GitHub中：
+	$git push origin master
+
