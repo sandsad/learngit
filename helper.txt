@@ -1,7 +1,7 @@
 1、将当前目录变成Git可以管理的仓库：git init
 2、将文件添加到版本库：
 	第一步、git add readme.txt：告诉Git，把文件添加到仓库；
-	第二步、git commit -m "illstration"：-m后面输入本次提交的说明
+	第二步、git commit -m "illustration"：-m后面输入本次提交的说明
 3、查看仓库当前状态：git status
 4、查看difference：git diff readme.txt
 5、提交修改和添加新文件命令相同
@@ -19,3 +19,12 @@ git add命令就是把文件修改添加到暂存区;git commit就是往master�
 
 10、丢弃工作区的更改：git checkout -- file
 11、丢弃暂存区的更改：git reset HEAD <file>
+
+删除文件:文件管理器中删除文件之后，工作区和版本库不一致，git status命令会知道哪些文件被删除了：
+	删除版本库中文件：git rm file + git commit -m "illustration"
+	恢复工作区中文件：git checkout -- file
+	
+本地Git仓库和GitHub仓库之间的传输是通过SSH加密，需要以下设置：
+第一步：创建SSH key.用户主目录下是否有.ssh目录，这个目录下是否有id_rsa和id_rsa.pub，如果有则跳过，没有则打开shell（Windows下打开Git Bash），创建SSH Key:
+	$ssh-keygen -t rsa -C "youremail@example.com"
+第二步：登录GitHub，打开"Account settings" > "SSH Key"页面：点击"Add SSH Key",填任意Title，在Key文本框里粘贴id_rsa.pub文件的内容，点击"Add Key",就可以看到已添加的Key。
