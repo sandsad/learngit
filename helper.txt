@@ -42,5 +42,33 @@ git add命令就是把文件修改添加到暂存区;git commit就是往master�
 	$git push origin master
 
 
-从远程库克隆
+从远程库克隆：
 $git clone git@github.com:sandsad/learngit.git
+
+分支：
+1、查看分支：git branch
+2、创建分支：git branch <name>
+3、切换分支：git checkout <name>
+4、创建+切换分支：git checkout -b <name>
+5、合并某分支到当前分支：git merge <name>
+6、删除分支：git branch -d <name>
+
+解决冲突：
+1、创建分支git checkout -b feature1，修改readme.txt最后一行为"Creating a new branch is quick AND simple."，在分支feature1上提交；
+2、再切换到master分支，修改readme.txt最后一行为"Creating a new branch is quick & simple."，在master分支提交；
+3、两个分支均有提交，导致不能快速合并，只能试图把各自的修改合并起来，但这种合并就可能会有冲突，（git status也可以告诉我吗冲突的文件）；
+4、查看readme.txt的内容发现Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容，我们修改如下后保存："Creating a new branch is quick and simple."
+	用带参数--graph的git log可以看到分支的合并情况：git log --graph --pretty=oneline --abbrev-commit
+5、删除feature1分支。
+
+通常分支合并时，Git尽可能使用Fast forward模式，但是这种模式下，删除分支后悔丢掉分支信息，如果强制禁止Fast forward模式，Git就会在merge时生成一个新的commit，这样就可以看出分支信息。
+1、git checkout -b dev
+2、修改文件，并添加提交
+3、git checkout master
+4、git merge --no-ff -m "merge with no-ff" dev (创建新的commit使用-m参数添加描述)
+5、git log --graph --pretty=oneline --abbrev-commit
+
+在实际开发中，我们应该按照几个基本原则进行分支管理：
+首先，master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；
+那在哪干活呢？干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；
+你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。
