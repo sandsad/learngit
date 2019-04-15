@@ -1,0 +1,6 @@
+1、将当前目录变成Git可以管理的仓库：git init
+2、将文件添加到版本库：
+	第一步、git add readme.txt：告诉Git，把文件添加到仓库；
+	第二步、git commit -m "illstration"：-m后面输入本次提交的说明
+3、查看仓库当前状态：git status
+4、查看difference：git diff
