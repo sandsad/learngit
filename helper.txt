@@ -41,3 +41,6 @@ git add命令就是把文件修改添加到暂存区;git commit就是往master�
 (4)本地作了提交之后就可以通过命令推送到GitHub中：
 	$git push origin master
 
+
+从远程库克隆
+$git clone git@github.com:sandsad/learngit.git
